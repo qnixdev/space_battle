@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  qnix_postgresql:
+    container_name: qnix-database
+    image: postgres:13.3
+    ports:
+      - '49160:5432'
+    volumes:
+      - ./docker/data/postgresql:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=q1w2e3r4
+      - POSTGRES_DB=qnix.local
+    networks:
+      - qnix_ntwrk
+
+volumes:
+  qnix_postgresql:
+
+networks:
+  qnix_ntwrk:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.7.0.0/16
+          gateway: 10.7.0.1
