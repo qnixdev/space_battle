@@ -1,5 +1,7 @@
 package dev.qnix.Entity;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+import dev.qnix.Converter.TeamConverter;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.UUID;
@@ -29,5 +31,15 @@ public class Ship {
     private Integer jediFactor;
 
     @Column(name = "team", length = 63, nullable = false)
-    private String team;
+    @Convert(converter = TeamConverter.class)
+    private Team team;
+
+    @AllArgsConstructor
+    @Getter
+    public enum Team {
+        EMPIRE("empire"), REBEL("rebel");
+
+        @JsonValue
+        private final String title;
+    }
 }

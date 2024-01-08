@@ -1,9 +1,9 @@
 package dev.qnix.Controller;
 
 import dev.qnix.Entity.Ship;
-import dev.qnix.Request.Ship.ShipCreateRequest;
-import dev.qnix.Request.Ship.ShipUpdateRequest;
-import dev.qnix.Service.ShipService;
+import dev.qnix.Model.Ship.ShipCreateRequest;
+import dev.qnix.Model.Ship.ShipUpdateRequest;
+import dev.qnix.Service.Ship.ShipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.UUID;

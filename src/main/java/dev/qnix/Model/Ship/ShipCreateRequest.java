@@ -1,5 +1,6 @@
-package dev.qnix.Request.Ship;
+package dev.qnix.Model.Ship;
 
+import dev.qnix.Entity.Ship;
 import lombok.Getter;
 
 @Getter
@@ -8,5 +9,5 @@ public class ShipCreateRequest {
     private Integer weaponPower;
     private Integer strength;
     private Integer jediFactor;
-    private String team;
+    private Ship.Team team;
 }

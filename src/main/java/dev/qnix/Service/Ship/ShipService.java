@@ -1,9 +1,9 @@
-package dev.qnix.Service;
+package dev.qnix.Service.Ship;
 
 import dev.qnix.Entity.Ship;
+import dev.qnix.Model.Ship.ShipCreateRequest;
+import dev.qnix.Model.Ship.ShipUpdateRequest;
 import dev.qnix.Repository.ShipRepository;
-import dev.qnix.Request.Ship.ShipCreateRequest;
-import dev.qnix.Request.Ship.ShipUpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
