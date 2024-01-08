@@ -25,6 +25,9 @@ public class Ship {
     @Column(name = "strength", nullable = false)
     private Integer strength;
 
+    @Column(name = "jedi_factor", nullable = false)
+    private Integer jediFactor;
+
     @Column(name = "team", length = 63, nullable = false)
     private String team;
 }

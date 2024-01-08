@@ -7,5 +7,6 @@ public class ShipCreateRequest {
     private String name;
     private Integer weaponPower;
     private Integer strength;
+    private Integer jediFactor;
     private String team;
 }

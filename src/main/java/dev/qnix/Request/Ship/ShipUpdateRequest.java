@@ -10,5 +10,6 @@ public class ShipUpdateRequest {
     private String name = null;
     private Integer weaponPower = null;
     private Integer strength = null;
+    private Integer jediFactor = null;
     private String team = null;
 }

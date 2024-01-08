@@ -27,6 +27,7 @@ public class ShipService {
             .name(request.getName())
             .weaponPower(request.getWeaponPower())
             .strength(request.getStrength())
+            .jediFactor(request.getJediFactor())
             .team(request.getTeam())
             .build()
         ;
@@ -63,6 +64,12 @@ public class ShipService {
             && request.getStrength().compareTo(existShip.getStrength()) != 0
         ) {
             existShip.setStrength(request.getStrength());
+        }
+        if (
+            null != request.getJediFactor()
+            && !request.getJediFactor().equals(existShip.getJediFactor())
+        ) {
+            existShip.setJediFactor(request.getJediFactor());
         }
         if (
             null != request.getTeam()

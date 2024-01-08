@@ -6,6 +6,7 @@ CREATE TABLE ship (
     name VARCHAR(127) NOT NULL,
     weapon_power INT NOT NULL,
     strength INT NOT NULL,
+    jedi_factor INT NOT NULL,
     team VARCHAR(63) NOT NULL,
     PRIMARY KEY(id)
 );
