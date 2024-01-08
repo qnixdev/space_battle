@@ -12,3 +12,9 @@ CREATE TABLE ship (
 );
 COMMENT ON COLUMN ship.id IS '(DC2Type:uuid)';
 ALTER TABLE ship OWNER TO postgres;
+
+INSERT INTO ship (id, name, weapon_power, strength, jedi_factor, team) VALUES (gen_random_uuid(), 'Jedi Starfighter', 5, 30, 15, 'empire');
+INSERT INTO ship (id, name, weapon_power, strength, jedi_factor, team) VALUES (gen_random_uuid(), 'CloakShape Fighter', 2, 70, 2, 'empire');
+INSERT INTO ship (id, name, weapon_power, strength, jedi_factor, team) VALUES (gen_random_uuid(), 'Super Star Destroyer', 70, 500, 0, 'empire');
+INSERT INTO ship (id, name, weapon_power, strength, jedi_factor, team) VALUES (gen_random_uuid(), 'RZ-1 A-wing interceptor', 4, 50, 4, 'empire');
+INSERT INTO ship (id, name, weapon_power, strength, jedi_factor, team) VALUES (gen_random_uuid(), 'Rebel Cool Ship', 30, 5, 30, 'rebel');
