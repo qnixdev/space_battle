@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Space battle</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Bootstrap -->
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" integrity="sha512-YTuMx+CIxXa1l+j5aDPm98KFbVcYFNhlr2Auha3pwjHCF1lLbY9/ITQQlsUzdM1scW45kHC5KNib4mNa1IFvJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>Space battle</h1>
+            </div>
+            <table class="table table-hover">
+                <caption><i class="fa fa-rocket"></i> The ships are ready for the next mission</caption>
+                <thead>
+                    <tr>
+                        <th>Ship</th>
+                        <th>Attack</th>
+                        <th>Strength</th>
+                        <th>Jedi Force</th>
+                        <th>Team</th>
+                        <th>Brief information</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="ship : ${shipList}">
+                        <td th:text="${ship.getName()}"></td>
+                        <td th:text="${ship.getWeaponPower()}"></td>
+                        <td th:text="${ship.getStrength()}"></td>
+                        <td th:text="${ship.getJediFactor()}"></td>
+                        <td th:text="${ship.getTeam()}"></td>
+                        <td th:text="${ship.getNameAndSpecs()}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

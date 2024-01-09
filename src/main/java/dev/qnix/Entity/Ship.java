@@ -1,7 +1,7 @@
 package dev.qnix.Entity;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-import dev.qnix.Converter.TeamConverter;
+import dev.qnix.Service.Converter.TeamConverter;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.UUID;
@@ -33,6 +33,15 @@ public class Ship {
     @Column(name = "team", length = 63, nullable = false)
     @Convert(converter = TeamConverter.class)
     private Team team;
+
+    public String getNameAndSpecs() {
+        return String.format("%1$s %2$s/%3$s/%4$s",
+            this.getName(),
+            this.getWeaponPower(),
+            this.getStrength(),
+            this.getJediFactor()
+        );
+    }
 
     @AllArgsConstructor
     @Getter

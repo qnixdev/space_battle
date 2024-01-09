@@ -1,4 +1,4 @@
-package dev.qnix.Converter;
+package dev.qnix.Service.Converter;
 
 import dev.qnix.Entity.Ship;
 import jakarta.persistence.AttributeConverter;
