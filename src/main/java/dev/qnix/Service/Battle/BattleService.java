@@ -4,7 +4,6 @@ import dev.qnix.Entity.Ship;
 import dev.qnix.Model.BattleRequest;
 import dev.qnix.Service.Battle.DTO.BattleResult;
 import org.springframework.stereotype.Service;
-
 import java.util.Random;
 
 @Service
