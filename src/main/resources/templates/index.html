@@ -38,6 +38,38 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="battle-box center-block border">
+                <form action="/battle" method="post" th:object="${battleRequest}">
+                    <h2 class="text-center">Mission</h2>
+                    <div class="center-block show-center">
+                        <label>
+                            <input class="form-control text-field" type="number" name="ship1_quantity" th:field="*{shipOneQuantity}" placeholder="Enter number of ships" required />
+                        </label>
+                        <label>
+                            <select class="form-control drp-dwn-width btn-default" name="ship1_id" th:field="*{shipOne}">
+                                <option value="">Select ship</option>
+                                <option th:each="ship : ${shipList}" th:value="${ship.getId()}" th:text="${ship.getName()}"></option>
+                            </select>
+                        </label>
+                    </div>
+                    <br>
+                    <p class="text-center">Enemy</p>
+                    <br>
+                    <div class="center-block show-center">
+                        <label>
+                            <input class="form-control text-field" type="number" name="ship2_quantity" th:field="*{shipTwoQuantity}" placeholder="Enter number of ships" required />
+                        </label>
+                        <label>
+                            <select class="form-control drp-dwn-width btn-default" name="ship1_id" th:field="*{shipTwo}">
+                                <option value="">Select ship</option>
+                                <option th:each="ship : ${shipList}" th:value="${ship.getId()}" th:text="${ship.getName()}"></option>
+                            </select>
+                        </label>
+                    </div>
+                    <br>
+                    <button class="center-block btn btn-md btn-danger" type="submit">Attack!</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>

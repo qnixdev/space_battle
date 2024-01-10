@@ -1,4 +1,4 @@
-package dev.qnix.Controller;
+package dev.qnix.Controller.Api;
 
 import dev.qnix.Entity.Ship;
 import dev.qnix.Model.Ship.ShipCreateRequest;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/ship")
+@RequestMapping("/api/v1/ship")
 public class ShipController {
     private final ShipService shipService;
 
