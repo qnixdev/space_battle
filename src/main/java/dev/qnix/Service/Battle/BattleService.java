@@ -31,8 +31,8 @@ public final class BattleService {
                 break;
             }
 
-            shipOneHealth -= (shipTwo.getWeaponPower() * request.getShipOneQuantity());
-            shipTwoHealth -= (shipOne.getWeaponPower() * request.getShipTwoQuantity());
+            shipOneHealth -= (shipOne.getWeaponPower() * request.getShipOneQuantity());
+            shipTwoHealth -= (shipTwo.getWeaponPower() * request.getShipTwoQuantity());
 
             if (battleLimit > 100) {
                 shipOneHealth = shipTwoHealth = 0;
@@ -50,10 +50,10 @@ public final class BattleService {
 
         if (shipOneHealth <= 0 && shipTwoHealth <= 0) {
             return new BattleResult(null, null, false, story);
-        } else if (shipOneHealth <= 0) {
-            return new BattleResult(shipOne, shipTwo, isShipTwoUsedJediPowers, story);
+        } else if (shipTwoHealth <= 0) {
+            return new BattleResult(shipOne, shipTwo, isShipOneUsedJediPowers, story);
         } else {
-            return new BattleResult(shipTwo, shipOne, isShipOneUsedJediPowers, story);
+            return new BattleResult(shipTwo, shipOne, isShipTwoUsedJediPowers, story);
         }
     }
 
