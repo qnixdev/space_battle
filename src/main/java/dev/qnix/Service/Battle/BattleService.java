@@ -17,7 +17,7 @@ public final class BattleService {
         boolean isShipOneUsedJediPowers = false, isShipTwoUsedJediPowers = false;
         byte battleLimit = 0;
 
-        while (shipOneHealth > 0 && shipTwoHealth > 0) {
+        do {
             if (this.isJediDestroyShipUsingTheForce(shipOne)) {
                 shipTwoHealth = 0;
                 isShipOneUsedJediPowers = true;
@@ -39,7 +39,7 @@ public final class BattleService {
             }
 
             battleLimit++;
-        }
+        } while (shipOneHealth > 0 && shipTwoHealth > 0);
 
         var story = new BattleResult.Story(
             request.getShipOneQuantity(),

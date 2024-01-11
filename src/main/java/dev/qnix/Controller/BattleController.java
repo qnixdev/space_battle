@@ -4,6 +4,7 @@ import dev.qnix.Model.BattleRequest;
 import dev.qnix.Service.Battle.BattleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +20,10 @@ public class BattleController {
     }
 
     @PostMapping
-    public String processBattle(@ModelAttribute("battleRequest") BattleRequest request) {
-        var battleResult = this.battleService.battle(request);
+    public String processBattle(@ModelAttribute("battleRequest") BattleRequest request, Model model) {
+        model.addAttribute("request", request);
+        model.addAttribute("response", this.battleService.battle(request));
 
-        System.out.println(battleResult);
-
-        return "redirect:/";
+        return "battle";
     }
 }

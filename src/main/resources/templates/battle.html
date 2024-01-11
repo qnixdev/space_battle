@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:insert="~{fragments/head :: head}"></head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide" type="text/css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>Space battle</h1>
+            </div>
+            <div class="text-center">
+                <h2>Battle</h2>
+                <br>
+                <p th:text="${request.getShipOneQuantity()} + ' ' + ${request.getShipOne().getName()} + (${request.getShipOneQuantity()} > 1 ? 's' : '')"></p>
+                <br>
+                <p>VS.</p>
+                <br>
+                <p th:text="${request.getShipTwoQuantity()} + ' ' + ${request.getShipTwo().getName()} + (${request.getShipTwoQuantity()} > 1 ? 's' : '')"></p>
+            </div>
+            <div class="text-center">
+                <a th:href="@{/}"><i class="fa fa-undo"></i> Back into battle</a>
+            </div>
+        </div>
+    </body>
+</html>
