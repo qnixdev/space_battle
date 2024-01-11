@@ -20,7 +20,10 @@ public class BattleController {
     }
 
     @PostMapping
-    public String processBattle(@ModelAttribute("battleRequest") BattleRequest request, Model model) {
+    public String processBattle(
+        @ModelAttribute("battleRequest") BattleRequest request,
+        Model model
+    ) {
         model.addAttribute("request", request);
         model.addAttribute("response", this.battleService.battle(request));
 
