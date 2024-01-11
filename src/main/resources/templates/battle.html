@@ -17,10 +17,20 @@
                 <br>
                 <p th:text="${request.getShipTwoQuantity()} + ' ' + ${request.getShipTwo().getName()} + (${request.getShipTwoQuantity()} > 1 ? 's' : '')"></p>
             </div>
-            <div class="center-block result-box">
-                <h3 class="text-center audio-wide" th:text="'Winner: ' + (${response.getWinnerShip()} != null ? ${response.getWinnerShip().getName()} : 'Draw')"></h3>
+            <div class="center-block result-box text-center">
+                <h3 class="audio-wide" th:text="'Winner: ' + (${response.getWinnerShip()} != null ? ${response.getWinnerShip().getName()} : 'Draw')"></h3>
                 <h3>Remaining strength</h3>
-                <dl class="dl-horizontal"></dl>
+                <dl style="display:grid;grid-template-columns: min-content 1fr;">
+                    <dt style="width:435px;" th:text="${request.getShipOne().getName()}"></dt>
+                    <dd th:text="${response.getStory().getShipOneRemainderHealth()}"></dd>
+                    <dt style="width:435px;" th:text="${request.getShipTwo().getName()}"></dt>
+                    <dd th:text="${response.getStory().getShipTwoRemainderHealth()}"></dd>
+                </dl>
+                <p class="text-center" th:text="${response.getWinnerShip() == null} ? 'The ships destroyed each other in an epic battle!' : (
+                    ${response.getWinnerShip().getName()}
+                    + (${response.isUsedJediPowers()} ? ' used his Jedi Power for a stunning victory ' : ' destroyed ')
+                    + ${response.getLoserShip().getName()}
+                )"></p>
             </div>
             <br>
             <div class="text-center">
