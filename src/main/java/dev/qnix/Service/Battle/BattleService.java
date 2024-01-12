@@ -50,10 +50,11 @@ public final class BattleService {
 
         if (shipOneHealth <= 0 && shipTwoHealth <= 0) {
             return new BattleResult(null, null, false, story);
-        } else if (shipTwoHealth <= 0) {
-            return new BattleResult(shipOne, shipTwo, isShipOneUsedJediPowers, story);
         } else {
-            return new BattleResult(shipTwo, shipOne, isShipTwoUsedJediPowers, story);
+            return shipTwoHealth <= 0
+                ? new BattleResult(shipOne, shipTwo, isShipOneUsedJediPowers, story)
+                : new BattleResult(shipTwo, shipOne, isShipTwoUsedJediPowers, story)
+            ;
         }
     }
 
