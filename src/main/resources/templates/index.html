@@ -58,9 +58,11 @@
                         </label>
                     </div>
                     <br>
+                    <input type="hidden" name="xid" th:field="*{xid}" />
                     <button class="center-block btn btn-md btn-danger" type="submit">Attack!!</button>
                 </form>
             </div>
         </div>
+        <script>const x=localStorage.getItem("xid");document.addEventListener("DOMContentLoaded",function(){let e=document.getElementById("xid");null!==e&&(e.value=x)});</script>
     </body>
 </html>

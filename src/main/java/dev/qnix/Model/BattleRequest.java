@@ -11,4 +11,5 @@ public final class BattleRequest {
     private int shipOneQuantity;
     private Ship shipTwo;
     private int shipTwoQuantity;
+    private String xid;
 }

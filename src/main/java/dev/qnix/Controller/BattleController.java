@@ -2,6 +2,7 @@ package dev.qnix.Controller;
 
 import dev.qnix.Model.BattleRequest;
 import dev.qnix.Service.Battle.BattleService;
+import dev.qnix.Service.User.LocalStorage.LocalStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +27,10 @@ public class BattleController {
     ) {
         model.addAttribute("request", request);
         model.addAttribute("response", this.battleService.battle(request));
+        model.addAttribute("xid", !request.getXid().isBlank()
+            ? request.getXid()
+            : LocalStorageService.generateXid()
+        );
 
         return "battle";
     }
