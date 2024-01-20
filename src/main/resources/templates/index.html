@@ -30,14 +30,14 @@
                 </tbody>
             </table>
             <div class="center-block battle-box border">
-                <form action="/battle" method="post" th:object="${battleRequest}">
+                <form th:action="@{/battle}" th:object="${battleRequest}" method="post">
                     <h2 class="text-center">Mission</h2>
                     <div class="center-block show-center">
                         <label>
-                            <input class="form-control text-field" type="number" name="ship1_quantity" th:field="*{shipOneQuantity}" placeholder="Enter number of ships" required />
+                            <input class="form-control text-field" type="number" th:field="*{shipOneQuantity}" placeholder="Enter number of ships" required />
                         </label>
                         <label>
-                            <select class="form-control btn-default drp-dwn-width" name="ship1_id" th:field="*{shipOne}">
+                            <select class="form-control btn-default drp-dwn-width" th:field="*{shipOne}">
                                 <option value="">Select ship</option>
                                 <option th:each="ship : ${shipList}" th:value="${ship.getId()}" th:text="${ship.getName()}"></option>
                             </select>
@@ -48,21 +48,21 @@
                     <br>
                     <div class="center-block show-center">
                         <label>
-                            <input class="form-control text-field" type="number" name="ship2_quantity" th:field="*{shipTwoQuantity}" placeholder="Enter number of ships" required />
+                            <input class="form-control text-field" type="number" th:field="*{shipTwoQuantity}" placeholder="Enter number of ships" required />
                         </label>
                         <label>
-                            <select class="form-control btn-default drp-dwn-width" name="ship1_id" th:field="*{shipTwo}">
+                            <select class="form-control btn-default drp-dwn-width" th:field="*{shipTwo}">
                                 <option value="">Select ship</option>
                                 <option th:each="ship : ${shipList}" th:value="${ship.getId()}" th:text="${ship.getName()}"></option>
                             </select>
                         </label>
                     </div>
                     <br>
-                    <input type="hidden" name="xid" th:field="*{xid}" />
+                    <input type="hidden" th:field="*{xid}" />
                     <button class="center-block btn btn-md btn-danger" type="submit">Attack!!</button>
                 </form>
             </div>
         </div>
-        <script>const x=localStorage.getItem("xid");document.addEventListener("DOMContentLoaded",function(){let e=document.getElementById("xid");null!==e&&(e.value=x)});</script>
+        <script defer th:src="@{'/js/index.js?v=20240120'}"></script>
     </body>
 </html>

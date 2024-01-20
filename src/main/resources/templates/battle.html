@@ -34,12 +34,14 @@
             </div>
             <br>
             <div class="text-center">
+                <form id="history" th:action="@{/history}" method="post">
+                    <input type="hidden" id="xid" name="xid" th:value="${xid}" />
+                    <a href="#" onclick="history()"><i class="fa fa-history"></i> History of battles</a>
+                </form>
                 <a th:href="@{/}"><i class="fa fa-undo"></i> Back into home</a>
             </div>
         </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script th:inline="javascript">document.addEventListener("DOMContentLoaded",function(){null===localStorage.getItem('xid')&&localStorage.setItem("xid",/*[[${xid}]]*/);})</script>
+        <script th:inline="javascript">document.addEventListener("DOMContentLoaded",function(){null===localStorage.getItem("xid")&&localStorage.setItem("xid",/*[[${xid}]]*/);})</script>
+        <script>function history(){document.getElementById("history").submit()}</script>
     </body>
 </html>
