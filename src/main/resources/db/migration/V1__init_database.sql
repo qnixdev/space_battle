@@ -23,7 +23,6 @@ begin
     return least($1, $2);
 end
 $_$;
-
 ALTER FUNCTION public.min(uuid, uuid) OWNER TO postgres;
 
 
@@ -37,8 +36,6 @@ CREATE AGGREGATE public.min(uuid) (
     SORTOP = OPERATOR(pg_catalog.<),
     PARALLEL = safe
 );
-
-
 ALTER AGGREGATE public.min(uuid) OWNER TO postgres;
 
 
