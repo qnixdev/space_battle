@@ -2,6 +2,7 @@ package dev.qnix.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.Date;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -43,4 +44,14 @@ public class Story {
 
     @Column(name = "ship_two_remainder_health")
     private Integer shipTwoRemainderHealth;
+
+    @Column(name = "date_battle_at", nullable = false)
+    private Date dateBattleAt;
+
+    @PrePersist
+    public void prePersist() {
+        var dateNow = new Date();
+        this.dateBattleAt = dateNow;
+        this.user.setDateLastActivityAt(dateNow);
+    }
 }

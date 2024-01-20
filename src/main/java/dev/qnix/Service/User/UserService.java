@@ -2,7 +2,6 @@ package dev.qnix.Service.User;
 
 import dev.qnix.Entity.User;
 import dev.qnix.Repository.UserRepository;
-import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,13 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User getUserByXidOrCreate(@NonNull String xid) {
+    public User getUserByXid(String xid) {
+        var existUser = this.userRepository.findByXid(xid);
+
+        return existUser.orElseThrow(IllegalArgumentException::new);
+    }
+
+    public User getUserByXidOrCreate(String xid) {
         var existUser = this.userRepository.findByXid(xid);
 
         if (existUser.isPresent()) {

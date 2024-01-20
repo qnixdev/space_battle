@@ -2,6 +2,7 @@ package dev.qnix.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -24,8 +25,9 @@ public class User {
     @Column(name = "date_last_activity_at", nullable = false)
     private Date dateLastActivityAt;
 
-    @OneToMany(targetEntity = Story.class, mappedBy = "user", orphanRemoval = true)
-    private List<Story> stories;
+    @OneToMany(mappedBy = "user", targetEntity = Story.class, cascade = {CascadeType.REMOVE}, orphanRemoval = true)
+    @OrderBy("dateBattleAt DESC")
+    private List<Story> stories = new ArrayList<>();
 
     public void addStory(Story story) {
         if (!this.stories.contains(story)) {
@@ -35,10 +37,13 @@ public class User {
     }
 
     public void removeStory(Story story) {
-        if (this.stories.remove(story)) {
-            if (story.getUser() == this) {
-                story.setUser(null);
-            }
+        if (this.stories.remove(story) && story.getUser() == this) {
+            story.setUser(null);
         }
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.dateLastActivityAt = new Date();
     }
 }
