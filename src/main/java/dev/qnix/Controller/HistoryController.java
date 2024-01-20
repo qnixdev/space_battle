@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/history")
 public class HistoryController {
     @PostMapping
-    public void showUserHistory(String xid, Model model) {
+    public String showUserHistory(String xid, Model model) {
+        model.addAttribute("storyList", new String[]{"a", "b"});
+
+        return "history";
     }
 }

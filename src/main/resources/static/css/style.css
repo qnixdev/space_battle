@@ -28,3 +28,8 @@
 .audio-wide {
     font-family: 'Audiowide', cursive;
 }
+.history {
+    th, td {
+        border: 1px solid grey;
+    }
+}
