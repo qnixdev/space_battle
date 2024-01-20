@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public final class BattleResult {
+public final class BattleDTO {
     Ship winnerShip;
     Ship loserShip;
     boolean isUsedJediPowers;

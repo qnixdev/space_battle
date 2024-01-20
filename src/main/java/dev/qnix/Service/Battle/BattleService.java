@@ -2,13 +2,13 @@ package dev.qnix.Service.Battle;
 
 import dev.qnix.Entity.Ship;
 import dev.qnix.Model.BattleRequest;
-import dev.qnix.Service.Battle.DTO.BattleResult;
+import dev.qnix.Service.Battle.DTO.BattleDTO;
 import org.springframework.stereotype.Service;
 import java.util.Random;
 
 @Service
 public final class BattleService {
-    public BattleResult battle(BattleRequest request) {
+    public BattleDTO battle(BattleRequest request) {
         var shipOne = request.getShipOne();
         var shipTwo = request.getShipTwo();
         var shipOneHealth = shipOne.getStrength() * request.getShipOneQuantity();
@@ -41,7 +41,7 @@ public final class BattleService {
             battleLimit++;
         } while (shipOneHealth > 0 && shipTwoHealth > 0);
 
-        var story = new BattleResult.Story(
+        var story = new BattleDTO.Story(
             request.getShipOneQuantity(),
             request.getShipTwoQuantity(),
             Math.max(shipOneHealth, 0),
@@ -49,11 +49,11 @@ public final class BattleService {
         );
 
         if (shipOneHealth <= 0 && shipTwoHealth <= 0) {
-            return new BattleResult(null, null, false, story);
+            return new BattleDTO(null, null, false, story);
         } else {
             return shipTwoHealth <= 0
-                ? new BattleResult(shipOne, shipTwo, isShipOneUsedJediPowers, story)
-                : new BattleResult(shipTwo, shipOne, isShipTwoUsedJediPowers, story)
+                ? new BattleDTO(shipOne, shipTwo, isShipOneUsedJediPowers, story)
+                : new BattleDTO(shipTwo, shipOne, isShipTwoUsedJediPowers, story)
             ;
         }
     }

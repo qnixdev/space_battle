@@ -4,6 +4,7 @@ import dev.qnix.Entity.User;
 import dev.qnix.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.ArrayList;
 
 @Service
 public class UserService {
@@ -29,6 +30,7 @@ public class UserService {
 
         var newUser = User.builder()
             .xid(xid)
+            .stories(new ArrayList<>())
             .build()
         ;
         this.userRepository.save(newUser);

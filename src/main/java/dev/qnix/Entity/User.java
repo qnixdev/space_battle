@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Data
 @Entity
@@ -27,7 +26,11 @@ public class User {
 
     @OneToMany(mappedBy = "user", targetEntity = Story.class, cascade = {CascadeType.REMOVE}, orphanRemoval = true)
     @OrderBy("dateBattleAt DESC")
-    private List<Story> stories = new ArrayList<>();
+    private List<Story> stories;
+
+    public User() {
+        this.stories = new ArrayList<>();
+    }
 
     public void addStory(Story story) {
         if (!this.stories.contains(story)) {

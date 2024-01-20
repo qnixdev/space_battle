@@ -4,11 +4,9 @@ import dev.qnix.Entity.Story;
 import dev.qnix.Entity.User;
 import dev.qnix.Model.BattleRequest;
 import dev.qnix.Repository.StoryRepository;
-import dev.qnix.Service.Battle.DTO.BattleResult;
+import dev.qnix.Service.Battle.DTO.BattleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Date;
 
 @Service
 public class StoryService {
@@ -19,7 +17,7 @@ public class StoryService {
         this.storyRepository = storyRepository;
     }
 
-    public Story create(BattleRequest request, BattleResult response, User user) {
+    public Story create(BattleRequest request, BattleDTO response, User user) {
         var story = Story.builder()
             .shipOne(request.getShipOne())
             .shipOneQuantity(request.getShipOneQuantity())
