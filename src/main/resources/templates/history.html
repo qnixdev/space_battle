@@ -21,15 +21,18 @@
                 </thead>
                 <tbody>
                     <tr th:each="story : ${storyList}">
-<!--                        <td th:text="${story.}"></td>-->
-<!--                        <td th:text="${story.}"></td>-->
-<!--                        <td th:text="${story.}"></td>-->
-<!--                        <td th:text="${story.}"></td>-->
-<!--                        <td th:text="${story.}"></td>-->
-<!--                        <td th:text="${story.}"></td>-->
+                        <td th:text="${story.getShipOne().getName()}"></td>
+                        <td th:text="${story.getShipTwo().getName()}"></td>
+                        <td th:text="${story.getShipOneRemainderHealth()}"></td>
+                        <td th:text="${story.getShipTwoRemainderHealth()}"></td>
+                        <td th:text="${story.getWinnerShip() != null ? story.getWinnerShip().getName() : null}"></td>
+                        <td th:text="${#dates.format(story.getDateBattleAt(), 'yyyy-MM-dd HH:mm:ss')}"></td>
                     </tr>
                 </tbody>
             </table>
+            <div style="float:right;">
+                <a th:href="@{/}"><i class="fa fa-undo"></i> Back into home</a>
+            </div>
         </div>
     </body>
 </html>

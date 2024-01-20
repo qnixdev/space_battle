@@ -62,7 +62,14 @@
                     <button class="center-block btn btn-md btn-danger" type="submit">Attack!!</button>
                 </form>
             </div>
+            <div class="text-center">
+                <form id="history" th:action="@{/history}" method="post">
+                    <input type="hidden" id="history-xid" name="xid" />
+                    <a href="#" onclick="history()"><i class="fa fa-history"></i> History of battles</a>
+                </form>
+            </div>
         </div>
         <script defer th:src="@{'/js/index.js?v=20240120'}"></script>
+        <script>function history(){document.getElementById("history").submit()}</script>
     </body>
 </html>

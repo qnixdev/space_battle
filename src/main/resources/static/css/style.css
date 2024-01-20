@@ -29,7 +29,10 @@
     font-family: 'Audiowide', cursive;
 }
 .history {
-    th, td {
+    th {
+        border: 1px solid grey !important;
+    }
+    tr, td {
         border: 1px solid grey;
     }
 }

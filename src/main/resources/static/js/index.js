@@ -1,7 +1,11 @@
 (() => {
-    let element = document.getElementById("xid");
+    let xid = localStorage.getItem("xid");
 
-    if (null !== element) {
-        element.value = localStorage.getItem("xid");
+    if (xid === undefined) {
+        xid = null;
     }
+
+    document.getElementsByName("xid").forEach((el) => {
+        el.value = xid;
+    });
 })();
